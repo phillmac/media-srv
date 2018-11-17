@@ -16,4 +16,8 @@ docker build \
     -t phillmac/mkvserver_mk2-build \
     --target mkvserver_mk2_builder \
     git://github.com/phillmac/mkvserver_mk2-build
+    
+docker build \
+    -t phillmac/media-srv \
+    git://github.com/phillmac/media-srv
 ```
