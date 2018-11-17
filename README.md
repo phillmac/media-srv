@@ -13,7 +13,7 @@ docker build \
     git://github.com/phillmac/ffmpeg-build#${ubuntu_version}
 
 docker build \
-    -t phillmac/mkvserver_mk2_builder \
+    -t phillmac/mkvserver_mk2-build \
     --target mkvserver_mk2_builder \
     git://github.com/phillmac/mkvserver_mk2_build
 ```
