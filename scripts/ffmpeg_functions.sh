@@ -7,7 +7,6 @@ function ffmpeg_hls_out () {
     
     ffmpeg_hls_out="${2:-${ffmpeg_hls_out}}"
     echo "ffmpeg hls output: ${ffmpeg_hls_out}"
-        ffmpeg_hls_seg_leng="${2:-${ffmpeg_hls_seg_leng}}"
     
     ffmpeg_hls_seg_leng="${ffmpeg_hls_seg_leng:-10}"
     ffmpeg_hls_seg_leng="${3:-${ffmpeg_hls_seg_leng}}"
