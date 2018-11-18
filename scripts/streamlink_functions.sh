@@ -36,7 +36,6 @@ function streamlink_stdout () {
     streamlink_quality="${2}"
 
     streamlink \
-        --verbose-player \
         --hls-segment-threads 3 \
         --hls-live-edge 10 \
         --ringbuffer-size 256M \
