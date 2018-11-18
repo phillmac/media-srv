@@ -15,7 +15,7 @@ function create_split_files () {
     
     for ((i=1; i<=output_count; i++))
     do
-        output_file="${tmpdir}/output/${i}"
+        output_file="${tmpdir}/output_${i}"
         mkfifo "${output_file}"
         add_end tee_output_list ">(cat > ${output_file})"
         add_end output_file_list
