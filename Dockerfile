@@ -5,5 +5,6 @@ RUN pip install streamlink
 COPY --from=phillmac/mkvserver_mk2-build /root/mkvserver_mk2/server /root/bin/* /usr/local/bin/
 
 #streamlink doesn't like root
+RUN useradd user
 USER user 
 
