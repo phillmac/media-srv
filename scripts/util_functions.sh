@@ -25,3 +25,4 @@ function create_split_files () {
 
 export -f wget_split_output
 export -f create_split_files
+export -f split_output
