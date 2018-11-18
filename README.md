@@ -16,6 +16,12 @@ docker build \
     -t phillmac/mkvserver_mk2-build \
     --target mkvserver_mk2_builder \
     git://github.com/phillmac/mkvserver_mk2-build
+
+docker build \
+    -t phillmac/python-ubuntu:18.04-3.7.1 \
+    -t phillmac/python-ubuntu:18.04-3.7 \
+    -t phillmac/python-ubuntu \
+    git://github.com/phillmac/docker-python-ubuntu#18.04-3.7.1
     
 docker build \
     -t phillmac/media-srv \
