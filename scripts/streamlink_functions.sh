@@ -9,7 +9,7 @@ streamlink_http_port="${STREAMLINK_HTTP_PORT:-9000}"
 streamlink_http_port="${3:streamlink_http_port}"
 
 streamlink \
-    --player-external-http
+    --player-external-http \
     --player-external-http-port "${streamlink_http_port}" \
     "${streamlink_url}" "${streamlink_quality}"
 
