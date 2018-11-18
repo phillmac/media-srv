@@ -18,3 +18,6 @@ streamlink \
     "${streamlink_url}" "${streamlink_quality}"
 
 }
+
+
+export -f streamlink_http_out
