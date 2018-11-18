@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function wget_split_output () {
-    wget_url="${1}    
+    wget_url="${1}"  
     wget "${wget_url}" -O - | tee ${tee_output_list} > /dev/null
 }
 
