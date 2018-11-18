@@ -23,3 +23,6 @@ function create_split_files () {
     
     export output_file_list tee_output_list
 }
+
+export -f wget_split_output
+export -f create_split_files
