@@ -10,7 +10,8 @@ function streamlink_in_out_hls_out_mkvserver () {
     ffmpeg_mkvserver_in="${output_file_list[2]}"
     
     tmux split ffmpeg_hls_out "${ffmpeg_hls_in}"
-    tmux split 
+    tmux split mvkserver_out_aac_audio "${ffmpeg_mkvserver_in}"
+    streamlink_stdout
 }
 
 function streamlink_in_out_mkvserver_aac () {
