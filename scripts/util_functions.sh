@@ -8,7 +8,7 @@ function wget_split_output () {
 function create_split_files () {
     output_count="${1}"
     
-    tmpdir="$(mktemp)"
+    tmpdir="$(mktemp -d)"
     
     output_file_list=()
     tee_output_list=()
