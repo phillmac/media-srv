@@ -4,10 +4,11 @@
 #@ Description: Functions for manipulating bash arrays
 #@ Usage: . array-funcs
 #@ Author: Chris F.A. Johnson
-#@ Copyright: © 2013 Chris F.A. Johnson
+#@ Copyright: Â© 2013 Chris F.A. Johnson
 #@ Released under the terms of the GNU General Public License V2 or later
 #@ See the file COPYING for the full license
 
+set -a
 funcfile=array-funcs
 array_funcs_created='3 Jan 2013'
 array_funcs_modified=2013-06-17T14:52:43
