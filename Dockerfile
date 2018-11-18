@@ -1,4 +1,4 @@
-FROM python:3.7.1
+FROM phillmac/python-ubuntu
 
 RUN apt-get update && apt-get install -y nano tmux less mbuffer
 RUN pip install streamlink
