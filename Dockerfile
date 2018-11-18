@@ -6,6 +6,6 @@ COPY --from=phillmac/mkvserver_mk2-build /root/mkvserver_mk2/mkv_server /root/bi
 COPY scripts/* /scripts/
 
 #streamlink doesn't like root
-RUN  adduser --disabled-password --gecos "" user
+RUN  chmod a+x /scripts/* && adduser --disabled-password --gecos "" user
 USER user 
 
