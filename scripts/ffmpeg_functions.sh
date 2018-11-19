@@ -12,7 +12,7 @@ function ffmpeg_hls_out () {
     ffmpeg_hls_seg_leng="${3:-${ffmpeg_hls_seg_leng}}"
     echo "ffmpeg segment length: ${ffmpeg_hls_seg_leng}"
     
-    ffmpeg -re -i "${ffmpeg_hls_in}" -c copy -segment_list_size 10 -hls_time "${ffmpeg_hls_seg_leng}" -hls_flags temp_file delete_segments "${ffmpeg_hls_out}"
+    ffmpeg -re -i "${ffmpeg_hls_in}" -c copy -segment_list_size 10 -hls_time "${ffmpeg_hls_seg_leng}" -hls_flags temp_file+delete_segments "${ffmpeg_hls_out}"
 }
 
 export -f ffmpeg_hls_out
