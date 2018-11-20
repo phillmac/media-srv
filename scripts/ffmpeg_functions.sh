@@ -31,7 +31,7 @@ function ffmpeg_mp3_icecast_out () {
     echo "ffmpeg icecast input: ${ffmpeg_icecast_in}"
     
     ffmpeg_icecast_out="${2:-${ffmpeg_icecast_out}}"
-    echo "ffmpeg icecast output: ${ffmpeg_icecast_in}"
+    echo "ffmpeg icecast output: ${ffmpeg_icecast_out}"
         
     ffmpeg -re -i "${ffmpeg_icecast_in}" \
         -vn \
