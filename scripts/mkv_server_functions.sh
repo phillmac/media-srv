@@ -28,7 +28,8 @@ function mvkserver_out_passthru_audio () {
     echo "ffmpeg input: ${mkvserver_ffmpeg_in}"
     ffmpeg -re -i ${mkvserver_ffmpeg_in} \
         -c:v copy \
-        -c:a copy -f matroska - | mkv_server 2>/dev/null 1>/dev/null
+        -c:a copy \
+        -f matroska - | mkv_server 2>/dev/null 1>/dev/null
 }
 
 
