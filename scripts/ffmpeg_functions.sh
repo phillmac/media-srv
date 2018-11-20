@@ -36,6 +36,7 @@ function ffmpeg_mp3_icecast_out () {
     ffmpeg -re -i "${ffmpeg_icecast_in}" \
         -vn \
         -c:a libmp3lame -b:a 192k -ar 44100 \
+        -f mp3 \
         -legacy_icecast     "${ffmpeg_legacy_icecast:-0}" \
         -ice_name           "${ffmpeg_ice_name}" \
         -ice_description    "${ffmpeg_ice_description}" \
@@ -46,3 +47,4 @@ function ffmpeg_mp3_icecast_out () {
 }
 
 export -f ffmpeg_hls_out
+export -f ffmpeg_mp3_icecast_out
