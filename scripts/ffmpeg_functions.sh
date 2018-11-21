@@ -18,7 +18,7 @@ function ffmpeg_hls_out () {
     
     ffmpeg -re -i "${ffmpeg_hls_in}" \
         -c copy \
-        -segment_list_size "${ffmpeg_hls_list_size}" \
+        -hls_list_size "${ffmpeg_hls_list_size}" \
         -hls_time "${ffmpeg_hls_seg_leng}" \
         -hls_flags temp_file+delete_segments \
         "${ffmpeg_hls_out}"
