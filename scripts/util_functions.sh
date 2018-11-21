@@ -31,6 +31,9 @@ function create_split_files () {
     done
 }
 
+function python_serve_http () {
+    "${scripts_dir}"/python-httpd.py "${python_http_port}" "${python_http_root}"
+
 export -f bash_repeat 
 export -f wget_split_output
 export -f create_split_files
