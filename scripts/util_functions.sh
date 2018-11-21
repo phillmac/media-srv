@@ -39,4 +39,4 @@ export -f bash_repeat
 export -f wget_split_output
 export -f create_split_files
 export -f split_output
-exort -f python_serve_http
+export -f python_serve_http
