@@ -31,6 +31,7 @@ function create_split_files () {
     done
 }
 
+export -f bash_repeat 
 export -f wget_split_output
 export -f create_split_files
 export -f split_output
