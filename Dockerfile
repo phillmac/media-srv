@@ -9,4 +9,4 @@ COPY scripts/* /scripts/
 #streamlink doesn't like root
 RUN  chmod a+x /scripts/* && adduser --disabled-password --gecos "" user
 USER user 
-echo "source /load_functions.sh" >> "${HOME}/.bashrc"
+RUN echo "source /load_functions.sh" >> "${HOME}/.bashrc"
