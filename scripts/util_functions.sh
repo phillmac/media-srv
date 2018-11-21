@@ -4,6 +4,7 @@ function bash_repeat () {
     while true;
     do
         bash -c "${@}"
+        sleep 1
    done
 }
 
