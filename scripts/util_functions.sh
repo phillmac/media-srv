@@ -1,5 +1,12 @@
 #!/bin/bash
 
+function bash_repeat () {
+    while true;
+    do
+        bash -c "${@}"
+   done
+}
+
 function split_output () {
     tee ${output_file_list[@]} > /dev/null
 }
