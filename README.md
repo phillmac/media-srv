@@ -81,10 +81,10 @@ source /load_functions.sh
 rm -v /dev/shm/hls/monstercat/monstercat*.ts
 tmux new -d -x 150 -y 50 bash -c "bash_repeat streamlink_hls_mkvserver_ice_av_out"
 ```
-#View running process output:
+# View running process output:
 `docker-compose exec media-srv-monstercat tmux attach -r`
 
-#Outstanding Bugs and issues:
+# Outstanding Bugs and issues:
  - Most players expect icecast streams to be audio only, and will fail to detect the codecs properly. Workarrounds:
    - pipe output from wget to vlc e.g. `wget http://icecasturl:8000/stream -qO - | vlc -`
    
