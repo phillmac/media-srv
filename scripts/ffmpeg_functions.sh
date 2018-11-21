@@ -34,7 +34,7 @@ function ffmpeg_mp3_icecast_out () {
     ffmpeg_icecast_out="${2:-${ffmpeg_icecast_out}}"
     echo "ffmpeg icecast output: ${ffmpeg_icecast_out}"
     
-    ffmpeg_icecast_br="${ffmpeg_icecast_br:-b:a 192k}"     
+    ffmpeg_icecast_br="${ffmpeg_icecast_br:--b:a 192k}"     
     ffmpeg_icecast_ar="${ffmpeg_icecast_ar:-44100}"
    
         
@@ -60,7 +60,7 @@ function ffmpeg_mpegts_av_icecast_out () {
     ffmpeg_av_icecast_out="${2:-${ffmpeg_av_icecast_out}}"
     echo "ffmpeg av icecast output: ${ffmpeg_av_icecast_out}"
     
-    ffmpeg_av_icecast_br="${ffmpeg_icecast_br:-b:a 192k}"     
+    ffmpeg_av_icecast_br="${ffmpeg_icecast_br:--b:a 192k}"     
     ffmpeg_av_icecast_ar="${ffmpeg_icecast_ar:-44100}"
         
     ffmpeg -re -i "${ffmpeg_av_icecast_in}" \
