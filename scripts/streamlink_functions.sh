@@ -98,6 +98,28 @@ function streamlink_mkvserver_passthru_out () {
     streamlink_player_out "${streamlink_url}" "${streamlink_quality}" bash -c mvkserver_out_passthru_audio
 }
 
+function streamlink_hls_mkvserver_ice_av_out () {
+    streamlink_url="${1:-${streamlink_url}}"
+    streamlink_quality="${2:-${streamlink_quality}}"
+    ffmpeg_hls_out="${3:-${ffmpeg_hls_out}}"
+    ffmpeg_icecast_out="${4:-${ffmpeg_icecast_out}}"
+    
+    create_split_files 3
+    
+    ffmpeg_hls_in="${output_file_list[0]}"
+    mkvserver_ffmpeg_in="${output_file_list[1]}"
+    ffmpeg_icecast_in="${output_file_list[2]}"
+    
+    #export ffmpeg_hls_in ffmpeg_hls_out mkvserver_ffmpeg_in ffmpeg_hls_out ffmpeg_icecast_in ffmpeg_icecast_out
+    
+    tmux split bash -c "ffmpeg_hls_out ${ffmpeg_hls_in} ${ffmpeg_hls_out}"
+    tmux split bash -c "mvkserver_out_aac_audio ${mkvserver_ffmpeg_in}"
+    tmux split bash -c "ffmpeg_mpegts_av_mp3_icecast_out  ${ffmpeg_icecast_in} ${ffmpeg_icecast_out}"
+    tmux split bash -c "python_serve_http"
+    tmux select-layout even-vertical
+    streamlink_stdout "${streamlink_url}" "${streamlink_quality}" | split_output
+}
+
 export -f streamlink_http_out
 export -f streamlink_player_out
 export -f streamlink_stdout
