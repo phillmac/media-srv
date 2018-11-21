@@ -74,7 +74,7 @@ services:
 ```
 **Don't forget to change the icecast passwords, especialy if you intentd to make your stream publicy available!!!**
 
-#Example /home/user/run.sh
+# Example /home/user/run.sh
 ```bash
 #!/bin/bash
 source /load_functions.sh
