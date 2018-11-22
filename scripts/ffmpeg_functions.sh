@@ -93,7 +93,7 @@ function ffmpeg_mpegts_av_mp3_icecast_out () {
    
         
     ffmpeg -re -i "${ffmpeg_icecast_in}" \
-        -c: copy 
+        -c: copy \
         -f mpegts \
         -legacy_icecast     "${ffmpeg_av_legacy_icecast:-0}" \
         -ice_name           "${ffmpeg_av_ice_name}" \
