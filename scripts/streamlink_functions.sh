@@ -114,6 +114,7 @@ function streamlink_hls_mkvserver_ice_av_out () {
     
     tmux split bash -c "ffmpeg_hls_out ${ffmpeg_hls_in} ${ffmpeg_hls_out}"
     tmux split bash -c "mvkserver_out_aac_audio ${mkvserver_ffmpeg_in}"
+    tmux select-layout even-vertical
     tmux split bash -c "ffmpeg_mpegts_av_mp3_icecast_out  ${ffmpeg_icecast_in} ${ffmpeg_icecast_out}"
     tmux split bash -c "python_serve_http"
     tmux select-layout even-vertical
