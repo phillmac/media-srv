@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export functions_dir="$(realpath $(dirname  ${BASH_SOURCE})/..)/functions"
+export functions_dir="$(dirname $(dirname $(realpath  ${BASH_SOURCE})))/functions"
 
 for file in "${functions_dir}"/*.sh
 do
