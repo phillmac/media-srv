@@ -35,15 +35,18 @@ version: "3.6"
 services:
   media-srv-monstercat:
     image: phillmac/media-srv
+    container_name: pvs-media-srv
     restart: unless-stopped
     network_mode: host
     tmpfs:
     - /tmp
     volumes:
       - /dev/shm/hls:/dev/shm/hls
-      - media-srv-monstercat-user:/home/user
+      # - media-srv-monstercat-user:/home/user
     tty: true
     environment:
+      hls_cleanup_patern: /dev/shm/hls/monstercat/monstercat*
+      media_srv_cmd: bash_repeat streamlink_hls_mkvserver_ice_av_out
       streamlink_url: twitch.tv/monstercat
       streamlink_quality: best
       ffmpeg_hls_list_size: 20
@@ -53,15 +56,15 @@ services:
       ffmpeg_ice_description: Monstercat Radio - 24/7 Music Stream - monster.cat/Spotify-Playlists
       ffmpeg_ice_url: https://twitch.tv/monstercat
       ffmpeg_ice_genre: Various
-      ffmpeg_icecast_out: icecast://source:hackme@localhost:8000/monstercat
+      ffmpeg_icecast_out: icecast://source:BukrkT3c5MDEPpQyPS5BVwrR@localhost:8000/monstercat
       ffmpeg_av_ice_name: Monstercat Radio
       ffmpeg_av_ice_description: Monstercat Radio - 24/7 Music Stream - monster.cat/Spotify-Playlists
       ffmpeg_av_ice_url: https://twitch.tv/monstercat
       ffmpeg_av_ice_genre: Various
-      ffmpeg_av_icecast_out: icecast://source:hackme@localhost:8000/monstercat_av
+      ffmpeg_av_icecast_out: icecast://source:BukrkT3c5MDEPpQyPS5BVwrR@localhost:8000/monstercat_av
       python_http_port: 8090
       python_http_root: /dev/shm/hls/monstercat
-    command: ["bash", "-c", "source /home/user/run.sh && bash"]
+    command: ["bash", "-c", "source run.sh && bash"]
   icecast:
     image: moul/icecast
     restart: unless-stopped
@@ -71,8 +74,12 @@ services:
       ICECAST_SOURCE_PASSWORD: hackme
       ICECAST_ADMIN_PASSWORD: hackme
       ICECAST_RELAY_PASSWORD: hackme
+volumes:
+  #media-srv-monstercat-user:
 ```
 **Don't forget to change the icecast passwords, especialy if you intentd to make your stream publicy available!!!**
+
+Un-comment the volumes if you want to make persistant changes to the files in the scripts or functions dirs
 
 # Example /home/user/run.sh
 ```bash
