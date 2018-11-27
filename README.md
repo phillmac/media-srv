@@ -56,12 +56,12 @@ services:
       ffmpeg_ice_description: Monstercat Radio - 24/7 Music Stream - monster.cat/Spotify-Playlists
       ffmpeg_ice_url: https://twitch.tv/monstercat
       ffmpeg_ice_genre: Various
-      ffmpeg_icecast_out: icecast://source:BukrkT3c5MDEPpQyPS5BVwrR@localhost:8000/monstercat
+      ffmpeg_icecast_out: icecast://source:hackme@localhost:8000/monstercat
       ffmpeg_av_ice_name: Monstercat Radio
       ffmpeg_av_ice_description: Monstercat Radio - 24/7 Music Stream - monster.cat/Spotify-Playlists
       ffmpeg_av_ice_url: https://twitch.tv/monstercat
       ffmpeg_av_ice_genre: Various
-      ffmpeg_av_icecast_out: icecast://source:BukrkT3c5MDEPpQyPS5BVwrR@localhost:8000/monstercat_av
+      ffmpeg_av_icecast_out: icecast://source:hackme@localhost:8000/monstercat_av
       python_http_port: 8090
       python_http_root: /dev/shm/hls/monstercat
     command: ["bash", "-c", "source run.sh && bash"]
