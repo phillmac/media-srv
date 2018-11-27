@@ -89,7 +89,7 @@ Un-comment the volumes if you want to make persistant changes to the files in th
 Press ^B then and type `:kill-session` to quit monitoring the output
 
 # Caveats:
- - Most players expect icecast streams to be audio only, and will fail to detect the codecs properly. Workarrounds:
+ - Most players expect icecast streams to be audio only, and will fail to detect the codecs for video streams properly. Workarrounds:
    - pipe output from wget to vlc e.g. `wget http://icecasturl:8000/stream -qO - | vlc -`
    
  
