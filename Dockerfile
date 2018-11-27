@@ -16,4 +16,4 @@ RUN chmod -v a+x *.sh *.py
 
 #streamlink issues warnings if run as root
 USER user
-RUN echo "source "${HOME}/scripts/load_functions.sh" >> "${HOME}/.bashrc"
+RUN echo 'source ${HOME}/scripts/load_functions.sh' >> "${HOME}/.bashrc"
