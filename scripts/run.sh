@@ -8,4 +8,4 @@ source "${scripts_dir}"/load_functions.sh
 
 [[ ! -z "${media_srv_cmd}" ]] && tmux new -d -x 150 -y 50 bash -c "${media_srv_cmd}" || echo 'Please set environment var media_srv_cmd'
 
-export -f scripts_dir
+export scripts_dir
