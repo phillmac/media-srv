@@ -12,7 +12,7 @@ COPY scripts scripts
 COPY functions functions
 
 WORKDIR /home/user/scripts
-RUN chmod -v a+x *.sh
+RUN chmod -v a+x *.sh *.py
 
 #streamlink issues warnings if run as root
 USER user
