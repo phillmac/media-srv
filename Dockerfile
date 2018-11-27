@@ -4,9 +4,14 @@ RUN apt-get update && apt-get install -y sudo nano tmux less mbuffer libass9 lib
 RUN pip install streamlink
 COPY --from=phillmac/mkvserver_mk2-build /root/mkvserver_mk2/mkv_server /root/bin/* /usr/local/bin/
 COPY load_functions.sh /load_functions.sh
-COPY scripts/* /scripts/
+RUN  adduser --disabled-password --gecos "" user
+WORKDIR /home/user
+COPY scripts scripts
+COPY functions functions
+WORKDIR /home/user/scripts
+RUN chmod -v a+x scripts/*
 
-#streamlink doesn't like root
-RUN  chmod a+x /scripts/* && adduser --disabled-password --gecos "" user
+#streamlink issues warnings if run as root
 USER user 
-RUN echo "source /load_functions.sh" >> "${HOME}/.bashrc"
+
+RUN echo "source "${HOME}/scripts/load_functions.sh" >> "${HOME}/.bashrc"
