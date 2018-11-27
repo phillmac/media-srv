@@ -82,7 +82,11 @@ rm -v /dev/shm/hls/monstercat/monstercat*.ts
 tmux new -d -x 150 -y 50 bash -c "bash_repeat streamlink_hls_mkvserver_ice_av_out"
 ```
 # View running process output:
-`docker-compose exec media-srv-monstercat tmux attach -r`
+`docker-compose exec media-srv-monstercat tmux new-session -t 0`
+
+**Don't use tmux attach because it will resize the session and then future split commands may fail**
+
+Press ^B then and type `:kill-session` to quit monitoring the output
 
 # Outstanding Bugs and issues:
  - Most players expect icecast streams to be audio only, and will fail to detect the codecs properly. Workarrounds:
