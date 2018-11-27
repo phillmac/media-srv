@@ -8,10 +8,9 @@ COPY --from=phillmac/mkvserver_mk2-build /root/mkvserver_mk2/mkv_server /root/bi
 RUN  adduser --disabled-password --gecos "" user
 USER user 
 
-WORKDIR /home/user
-COPY scripts scripts
-COPY functions functions
+COPY scripts /home/user/scripts
+COPY functions /home/user/functions
 WORKDIR /home/user/scripts
-RUN chmod -v a+x scripts/*
+RUN chmod -v a+x "${HOME}"/scripts/*
 
 RUN echo "source "${HOME}/scripts/load_functions.sh" >> "${HOME}/.bashrc"
