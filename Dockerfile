@@ -6,6 +6,7 @@ COPY --from=phillmac/mkvserver_mk2-build /root/mkvserver_mk2/mkv_server /root/bi
 
 RUN  adduser --disabled-password --gecos "" user
 
+WORKDIR /home/user
 
 COPY scripts scripts
 COPY functions functions
