@@ -14,7 +14,7 @@ function streamlink_http_out () {
         --player-external-http \
         --player-external-http-port "${streamlink_http_port}" \
         "${streamlink_url}" "${streamlink_quality}"
-
+        echo "Finished"
 }
 
 function streamlink_player_out () {
@@ -29,7 +29,9 @@ function streamlink_player_out () {
         --ringbuffer-size 256M \
         --player "${streamlink_player_command}" \
         "${streamlink_url}" "${streamlink_quality}"
+        echo "Finished"
 }
+
 function streamlink_stdout () {
     streamlink_url="${1:-${streamlink_url}}"
     streamlink_quality="${2:-${streamlink_quality}}"
@@ -40,6 +42,7 @@ function streamlink_stdout () {
         --ringbuffer-size 256M \
         --stdout \
         "${streamlink_url}" "${streamlink_quality}"
+        echo "Finished"
 }
 
 function streamlink_hls_mkvserver_out () {
@@ -60,6 +63,7 @@ function streamlink_hls_mkvserver_out () {
     tmux split bash -c "python_serve_http"
     tmux select-layout even-vertical
     streamlink_stdout "${streamlink_url}" "${streamlink_quality}" | split_output
+    echo "Finished"
 }
 
 function streamlink_hls_mkvserver_ice_out () {
@@ -85,6 +89,7 @@ function streamlink_hls_mkvserver_ice_out () {
     tmux split bash -c "python_serve_http"
     tmux select-layout even-vertical
     streamlink_stdout "${streamlink_url}" "${streamlink_quality}" | split_output
+    echo "Finished"
 }
 
 function streamlink_mkvserver_out () {
@@ -92,6 +97,7 @@ function streamlink_mkvserver_out () {
     streamlink_quality="${2:-${streamlink_quality}}"
     
     streamlink_player_out "${streamlink_url}" "${streamlink_quality}" bash -c mvkserver_out_aac_audio
+    echo "Finished"
 }
 
 function streamlink_mkvserver_passthru_out () {
@@ -99,6 +105,7 @@ function streamlink_mkvserver_passthru_out () {
     streamlink_quality="${2:-${streamlink_quality}}"
     
     streamlink_player_out "${streamlink_url}" "${streamlink_quality}" bash -c mvkserver_out_passthru_audio
+    echo "Finished"
 }
 
 function streamlink_hls_mkvserver_ice_av_out () {
@@ -122,6 +129,7 @@ function streamlink_hls_mkvserver_ice_av_out () {
     tmux split bash -c "python_serve_http"
     tmux select-layout even-vertical
     streamlink_stdout "${streamlink_url}" "${streamlink_quality}" | split_output
+    echo "Finished"
 }
 
 export -f streamlink_http_out
