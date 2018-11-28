@@ -1,10 +1,14 @@
 #!/bin/bash
 
 function bash_repeat () {
+    bash_repeat_pause={bash_repeat_pause:-10}
+    
     while true;
     do
         bash -c "${@}"
-        sleep 10
+        echo "Sleeping for ${bash_repeat_pause}"
+        sleep "${bash_repeat_pause}"
+        echo "Repeating..."
    done
 }
 
