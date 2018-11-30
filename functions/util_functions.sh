@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function bash_repeat () {
-    bash_repeat_pause={bash_repeat_pause:-10}
+    bash_repeat_pause=${bash_repeat_pause:-10}
     
     while true;
     do
