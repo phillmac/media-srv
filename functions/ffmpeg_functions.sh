@@ -60,8 +60,30 @@ function ffmpeg_mpegts_av_icecast_out () {
     ffmpeg_av_icecast_out="${2:-${ffmpeg_av_icecast_out}}"
     echo "ffmpeg av icecast output: ${ffmpeg_av_icecast_out}"
     
-    ffmpeg_av_icecast_br="${ffmpeg_icecast_br:--b:a 192k}"     
-    ffmpeg_icecast_ar="${ffmpeg_icecast_ar:--ar 44100}"
+        
+    ffmpeg -re -i "${ffmpeg_av_icecast_in}" \
+        -c copy \
+        -f mpegts \
+        -legacy_icecast     "${ffmpeg_av_legacy_icecast:-0}" \
+        -ice_name           "${ffmpeg_av_ice_name}" \
+        -ice_description    "${ffmpeg_av_ice_description}" \
+        -ice_url            "${ffmpeg_av_ice_url}" \
+        -ice_genre          "${ffmpeg_av_ice_genre}" \
+        -content_type audio/mpeg \
+        "${ffmpeg_av_icecast_out}"
+}
+
+function ffmpeg_mpegts_mp3_av_icecast_out () {
+    
+    ffmpeg_av_icecast_in="${ffmpeg_av_icecast_in:--}"
+    ffmpeg_av_icecast_in="${1:-${ffmpeg_av_icecast_in}}"
+    echo "ffmpeg av icecast input: ${ffmpeg_av_icecast_in}"
+    
+    ffmpeg_av_icecast_out="${2:-${ffmpeg_av_icecast_out}}"
+    echo "ffmpeg av icecast output: ${ffmpeg_av_icecast_out}"
+    
+    ffmpeg_av_icecast_br="${ffmpeg_av_icecast_br:--b:a 192k}"     
+    ffmpeg_icecast_ar="${ffmpeg_av_icecast_ar:--ar 44100}"
         
     ffmpeg -re -i "${ffmpeg_av_icecast_in}" \
         -c:v copy \
@@ -120,3 +142,4 @@ export -f ffmpeg_hls_out
 export -f ffmpeg_mp3_icecast_out
 export -f ffmpeg_mpegts_av_icecast_out
 export -f ffmpeg_mpegts_av_mp3_icecast_out
+export -f ffmpeg_mpegts_mp3_av_icecast_out
