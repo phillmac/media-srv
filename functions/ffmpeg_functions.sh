@@ -40,7 +40,7 @@ function ffmpeg_mp3_icecast_out () {
         
     ffmpeg -re -i "${ffmpeg_icecast_in}" \
         -vn \
-        -c:a libmp3lame ${ffmpeg_icecast_br} ${ffmpeg_icecast_ar} \
+        -c:a libmp3lame "${ffmpeg_icecast_br}" "${ffmpeg_icecast_ar}" \
         -f mp3 \
         -legacy_icecast     "${ffmpeg_legacy_icecast:-0}" \
         -ice_name           "${ffmpeg_ice_name}" \
@@ -125,7 +125,7 @@ function ffmpeg_mpegts_av_mp3_icecast_out () {
         -content_type video/mpeg \
         "${ffmpeg_av_icecast_out}" \
         -vn \
-        -c:a libmp3lame ${ffmpeg_icecast_br} ${ffmpeg_icecast_ar} \
+        -c:a libmp3lame "${ffmpeg_icecast_br}" "${ffmpeg_icecast_ar}" \
         -f mp3 \
         -legacy_icecast     "${ffmpeg_legacy_icecast:-0}" \
         -ice_name           "${ffmpeg_ice_name}" \
