@@ -4,7 +4,7 @@ Ffmpeg, streamlink and other utils for streaming and ripping
 # Build instructions:
 ```bash
 ubuntu_version="18.04"
-ffmpeg_version="tags/n4.1"
+ffmpeg_version="tags/n4.2.1"
 
 docker build \
     -t phillmac/ffmpeg-build:${ubuntu_version}-${ffmpeg_version////_} \
