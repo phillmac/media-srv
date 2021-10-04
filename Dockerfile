@@ -12,9 +12,9 @@ COPY scripts scripts
 COPY functions functions
 
 WORKDIR /home/user/scripts
-RUN chmod -v a+x *.sh *.py
+RUN chmod -v a+x *.sh *.py \
+ && usermod -aG video user
 
 #streamlink issues warnings if run as root
 USER user
-RUN usermod -aG video user \
- && echo 'source ${HOME}/scripts/load_functions.sh' >> "${HOME}/.bashrc"
+RUN echo 'source ${HOME}/scripts/load_functions.sh' >> "${HOME}/.bashrc"
